@@ -1,0 +1,15 @@
+name = "headshot-r2-cdn"
+main = "worker.js"
+compatibility_date = "2024-05-01"
+
+# Replace with your Cloudflare account ID
+account_id = "YOUR_ACCOUNT_ID"
+
+# Optional: add a route if using Cloudflare Workers on your domain
+# routes = ["yourdomain.com/i/*"]
+
+# Bind the R2 bucket
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "headshot-uploads"
+preview_bucket_name = "headshot-uploads"
