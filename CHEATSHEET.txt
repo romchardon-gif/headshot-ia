@@ -1,0 +1,27 @@
+HEADSHOT IA — CHEATSHEET (où trouver chaque valeur)
+
+1) PUBLIC_BASE_URL
+   - Render → votre Service → l'URL affichée (ex: https://headshot-ia.onrender.com)
+   - Remplacez par votre domaine personnalisé plus tard
+
+2) STRIPE (mode test pour commencer)
+   - Stripe → Developers → API keys : prenez une "Secret key" (commence par sk_test_)
+   - Stripe → Products → créez 3 Prices (Essai, Pro, Abonnement) → récupérez les IDs price_...
+
+3) REPLICATE
+   - https://replicate.com/account/api-tokens → "New Token" (r8_...)
+   - Modèle conseillé : fofr/instant-id-portrait
+
+4) CLOUDFLARE R2
+   - Dashboard → R2 → Create bucket → (ex: headshot-uploads)
+   - R2 → API Tokens → "Create API token" (Read & Write) → Access Key + Secret
+   - (Facile) Bucket → activer "Public Bucket" → copiez l'URL pub-...r2.dev → S3_PUBLIC_BASE
+   - (Pro) Utilisez le Worker CDN fourni → S3_PUBLIC_BASE = https://cdn.votredomaine.com/i
+
+5) SMTP (Mailtrap en dev)
+   - https://mailtrap.io → Inboxes → Credentials → HOST/PORT/USER/PASS
+   - SMTP_FROM = "Headshot IA <no-reply@headshot.app>" (ou votre domaine)
+
+Lancement:
+  npm run setup   # génère .env en répondant à des questions simples
+  npm install && npm run db:init && npm run dev

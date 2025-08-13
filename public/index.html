@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Headshot IA — Deviens la meilleure version de toi</title>
+  <link rel="stylesheet" href="/styles.css">
+
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#6a00ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
+
+</head>
+<body>
+<nav class="nav">
+  <div class="nav__brand">Headshot IA</div>
+  <div class="nav__actions">
+    <span id="whoami" class="muted"></span>
+    <button id="btnSignin" class="btn btn--outline">Se connecter</button>
+  </div>
+</nav>
+
+  <header class="hero">
+    <div class="hero__content">
+      <h1>Deviens la meilleure version de toi</h1>
+      <p>Transforme tes photos en portraits professionnels grâce à l’IA.</p>
+      <button id="ctaStart" class="btn btn--gold">Commencer maintenant</button>
+    </div>
+    <div class="hero__cards">
+      <img src="https://images.unsplash.com/photo-1548142813-c348350df52b?q=80&w=800&auto=format&fit=crop" alt="Avant">
+      <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop" alt="Après">
+    </div>
+  </header>
+
+  <main class="container">
+<div id="signinModal" class="modal hidden">
+  <div class="modal__card">
+    <h3>Connexion par email</h3>
+    <p>Recevez un lien magique pour vous connecter.</p>
+    <input id="emailInput" type="email" placeholder="votre@email.com" />
+    <div class="modal__actions">
+      <button id="sendLink" class="btn">Envoyer le lien</button>
+      <button id="closeModal" class="btn btn--outline">Annuler</button>
+    </div>
+    <div id="signinMsg" class="muted"></div>
+  </div>
+</div>
+
+<section class="card" id="history">
+  <h2>Mes rendus</h2>
+  <div id="historyGrid" class="grid"></div>
+</section>
+
+    <section id="upload" class="card">
+      <h2>Ajoute 5 à 10 photos de toi</h2>
+      <ul>
+        <li>Bonne luminosité</li>
+        <li>Différents angles</li>
+        <li>Pas de filtre</li>
+      </ul>
+      <form id="uploadForm">
+        <label for="style">Style</label>
+        <select id="style">
+          <option value="corporate" selected>Corporate</option>
+          <option value="influencer">Influenceur</option>
+          <option value="dating">Dating</option>
+          <option value="artistic">Artistique</option>
+        </select>
+        <input id="fileInput" type="file" accept="image/*" multiple required />
+        <button class="btn" type="submit">Continuer ➜</button>
+      </form>
+      <div id="progress" class="progress hidden">Envoi en cours…</div>
+      <div id="result" class="grid"></div>
+      <button id="downloadAll" class="btn btn--gold hidden" type="button">Télécharger toutes les photos</button>
+    </section>
+
+    <section class="card">
+      <h2>Choisis ton pack</h2>
+      <div class="plans">
+        <div class="plan">
+          <h3>Pack Essai</h3>
+          <p>5 photos générées</p>
+          <strong>4,99 €</strong>
+          <button class="btn btn--outline" data-plan="try">Choisir</button>
+        </div>
+        <div class="plan plan--popular">
+          <div class="badge">Populaire</div>
+          <h3>Pro</h3>
+          <p>20 photos générées</p>
+          <strong>9,99 €</strong>
+          <button class="btn" data-plan="pro">Choisir</button>
+        </div>
+        <div class="plan">
+          <h3>Illimité</h3>
+          <p>Accès + tous styles</p>
+          <strong>14,99 €/mois</strong>
+          <button class="btn btn--outline" data-plan="sub">Choisir</button>
+        </div>
+      </div>
+      <p class="trust">Apple Pay • Google Pay • CB — <em>100% satisfait ou remboursé</em></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 Headshot IA. Tous droits réservés.</p>
+  </footer>
+
+  <script src="/script.js"></script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js').catch(console.error);
+      });
+    }
+  </script>
+
+</body>
+</html>

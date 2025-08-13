@@ -1,0 +1,30 @@
+{
+  "name": "ai-profile-generator-starter",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "NODE_ENV=production node server.js",
+    "purge": "node purge-old.js",
+    "db:init": "node scripts/init-db.js",
+    "env:check": "node scripts/check-env.js",
+    "setup": "node scripts/setup.mjs"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "multer": "^1.4.5-lts.1",
+    "node-fetch": "^3.3.2",
+    "replicate": "^0.31.2",
+    "stripe": "^16.6.0",
+    "jimp": "^0.22.10",
+    "adm-zip": "^0.5.10",
+    "@aws-sdk/client-s3": "^3.662.0",
+    "better-sqlite3": "^9.4.5",
+    "cookie-parser": "^1.4.6",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.9.13"
+  }
+}
